@@ -1,9 +1,16 @@
-FROM node:6
+FROM node
 
-VOLUME /naivecoin
+COPY . /naivecoin
+
+# VOLUME /naivecoin
 
 WORKDIR /naivecoin
 
-ENTRYPOINT node bin/naivecoin.js
+RUN ["npm", "install", "-y"]
 
-EXPOSE 3001
+# ENTRYPOINT node bin/naivecoin.js
+CMD ["node", "bin/naivecoin.js"]
+
+# EXPOSE 3001
+
+
